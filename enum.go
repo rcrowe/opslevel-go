@@ -290,27 +290,27 @@ const (
 )
 
 // All ToolCategory as []string
-func AllToolCategory() []string {
-	return []string{
-		string(ToolCategoryAdmin),
-		string(ToolCategoryAPIDocumentation),
-		string(ToolCategoryCode),
-		string(ToolCategoryContinuousIntegration),
-		string(ToolCategoryDeployment),
-		string(ToolCategoryErrors),
-		string(ToolCategoryFeatureFlag),
-		string(ToolCategoryHealthChecks),
-		string(ToolCategoryIncidents),
-		string(ToolCategoryIssueTracking),
-		string(ToolCategoryLogs),
-		string(ToolCategoryMetrics),
-		string(ToolCategoryOrchestrator),
-		string(ToolCategoryResiliency),
-		string(ToolCategoryRunbooks),
-		string(ToolCategorySecurityScans),
-		string(ToolCategoryStatusPage),
-		string(ToolCategoryWiki),
-		string(ToolCategoryOther),
+func AllToolCategory() []ToolCategory {
+	return []ToolCategory{
+		ToolCategoryAdmin,
+		ToolCategoryAPIDocumentation,
+		ToolCategoryCode,
+		ToolCategoryContinuousIntegration,
+		ToolCategoryDeployment,
+		ToolCategoryErrors,
+		ToolCategoryFeatureFlag,
+		ToolCategoryHealthChecks,
+		ToolCategoryIncidents,
+		ToolCategoryIssueTracking,
+		ToolCategoryLogs,
+		ToolCategoryMetrics,
+		ToolCategoryOrchestrator,
+		ToolCategoryResiliency,
+		ToolCategoryRunbooks,
+		ToolCategorySecurityScans,
+		ToolCategoryStatusPage,
+		ToolCategoryWiki,
+		ToolCategoryOther,
 	}
 }
 
