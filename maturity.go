@@ -1,41 +1,28 @@
 package opslevel
 
-type ServiceMaturity struct {
-	Name           string
-	MaturityReport struct {
-		CategoryBreakdown []struct {
-			Category struct {
-				Name string
-			}
-			Level struct {
-				Name string
-			}
-		}
-		OverallLevel struct {
-			Name string
-		}
-	}
+type CategoryBreakdown struct {
+	Category Category
+	Level    Level
 }
 
-func (s *ServiceMaturity) GetValues(fields ...string) []string {
-	var output []string
-	for _, field := range fields {
-		if field == "Name" {
-			output = append(output, s.Name)
-			continue
-		}
-		if field == "Overall" {
-			output = append(output, s.MaturityReport.OverallLevel.Name)
-			continue
-		}
-		for _, breakdown := range s.MaturityReport.CategoryBreakdown {
-			if field == breakdown.Category.Name {
-				output = append(output, breakdown.Level.Name)
-				break
-			}
+type MaturityReport struct {
+	CategoryBreakdown []CategoryBreakdown
+	OverallLevel      Level
+}
+
+type ServiceMaturity struct {
+	Name           string
+	MaturityReport MaturityReport
+}
+
+// Get Given a 'category' name returns the 'Level'
+func (s *MaturityReport) Get(category string) *Level {
+	for _, breakdown := range s.CategoryBreakdown {
+		if category == breakdown.Category.Name {
+			return &breakdown.Level
 		}
 	}
-	return output
+	return nil
 }
 
 func (c *Client) ListServicesMaturity() ([]ServiceMaturity, error) {
