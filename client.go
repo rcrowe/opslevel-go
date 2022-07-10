@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-	"strings"
 	"time"
 )
 
@@ -43,7 +42,7 @@ func SetAPIToken(apiToken string) Option {
 
 func SetURL(url string) Option {
 	return func(c *ClientSettings) {
-		c.url = fmt.Sprintf("%s/graphql", strings.TrimRight(url, "/"))
+		c.url = url
 	}
 }
 

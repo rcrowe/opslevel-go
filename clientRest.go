@@ -15,5 +15,6 @@ func NewRestClient(options ...Option) *resty.Client {
 	client.SetHeader("Accept", "application/json")
 	client.SetHeader("User-Agent", buildUserAgent(settings.userAgentExtra))
 	client.SetTimeout(settings.timeout)
+	client.SetRetryCount(settings.retries)
 	return client
 }

@@ -59,7 +59,7 @@ func NewGQLClient(options ...Option) *Client {
 
 	return &Client{
 		pageSize: graphql.Int(settings.pageSize),
-		client:   graphql.NewClient(settings.url, standardClient),
+		client:   graphql.NewClient(fmt.Sprintf("%s/graphql", strings.TrimRight(settings.url, "/")), standardClient),
 	}
 }
 
