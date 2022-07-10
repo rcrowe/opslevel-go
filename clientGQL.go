@@ -43,6 +43,7 @@ func NewGQLClient(options ...Option) *Client {
 	)
 
 	retryClient := retryablehttp.NewClient()
+	retryClient.Logger = nil
 	retryClient.RetryMax = settings.retries
 
 	standardClient := retryClient.StandardClient()
